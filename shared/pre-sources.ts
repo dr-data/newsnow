@@ -413,6 +413,49 @@ export const originSources = {
       },
     },
   },
+  "hk01": {
+    name: "香港01",
+    type: "hottest",
+    column: "hongkong",
+    color: "blue",
+    home: "https://www.hk01.com/hot",
+  },
+  "yahoohk": {
+    name: "Yahoo新聞",
+    column: "hongkong",
+    color: "purple",
+    home: "https://hk.news.yahoo.com/hong-kong/",
+  },
+  "googlenewshk": {
+    name: "Google新聞",
+    column: "hongkong",
+    color: "blue",
+    home: "https://news.google.com/",
+  },
+  "scmp": {
+    name: "SCMP",
+    column: "hongkong",
+    color: "gray",
+    home: "https://www.scmp.com/",
+  },
+  "rthk": {
+    name: "香港電台",
+    column: "hongkong",
+    color: "blue",
+    home: "https://news.rthk.hk/rthk/ch/latest-news.htm",
+  },
+  "infogovhk": {
+    name: "政府新聞網",
+    column: "hongkong",
+    color: "sky",
+    home: "https://www.info.gov.hk/gia/general/ctoday.htm",
+  },
+  "mingpao": {
+    name: "明報",
+    column: "hongkong",
+    color: "blue",
+    home: "https://news.mingpao.com/",
+  },
 } as const satisfies Record<string, OriginSource>
 
 export function genSources() {

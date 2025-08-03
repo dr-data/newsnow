@@ -472,5 +472,55 @@
     "color": "green",
     "interval": 1800000,
     "title": "最热"
+  },
+  "hk01": {
+    "name": "香港01",
+    "type": "hottest",
+    "column": "hongkong",
+    "home": "https://www.hk01.com/hot",
+    "color": "blue",
+    "interval": 600000
+  },
+  "yahoohk": {
+    "name": "Yahoo新聞",
+    "column": "hongkong",
+    "home": "https://hk.news.yahoo.com/hong-kong/",
+    "color": "purple",
+    "interval": 600000
+  },
+  "googlenewshk": {
+    "name": "Google新聞",
+    "column": "hongkong",
+    "home": "https://news.google.com/",
+    "color": "blue",
+    "interval": 600000
+  },
+  "scmp": {
+    "name": "SCMP",
+    "column": "hongkong",
+    "home": "https://www.scmp.com/",
+    "color": "gray",
+    "interval": 600000
+  },
+  "rthk": {
+    "name": "香港電台",
+    "column": "hongkong",
+    "home": "https://news.rthk.hk/rthk/ch/latest-news.htm",
+    "color": "blue",
+    "interval": 600000
+  },
+  "infogovhk": {
+    "name": "政府新聞網",
+    "column": "hongkong",
+    "home": "https://www.info.gov.hk/gia/general/ctoday.htm",
+    "color": "sky",
+    "interval": 600000
+  },
+  "mingpao": {
+    "name": "明報",
+    "column": "hongkong",
+    "home": "https://news.mingpao.com/",
+    "color": "blue",
+    "interval": 600000
   }
 }
