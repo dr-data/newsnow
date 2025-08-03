@@ -3,8 +3,10 @@ import { useQuery } from "@tanstack/react-query"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import { useWindowSize } from "react-use"
 import { forwardRef, useImperativeHandle } from "react"
+import { useSetAtom } from "jotai"
 import { OverlayScrollbar } from "../common/overlay-scrollbar"
 import { safeParseString } from "~/utils"
+import { editingSourceAtom } from "~/atoms/settings"
 
 export interface ItemsProps extends React.HTMLAttributes<HTMLDivElement> {
   id: SourceID
@@ -103,6 +105,7 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
   })
 
   const { isFocused, toggleFocus } = useFocusWith(id)
+  const setEditingSource = useSetAtom(editingSourceAtom)
 
   return (
     <>
@@ -140,6 +143,11 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
             type="button"
             className={$("btn", isFocused ? "i-ph:star-fill" : "i-ph:star-duotone")}
             onClick={toggleFocus}
+          />
+          <button
+            type="button"
+            className={$("btn", "i-ph:gear-duotone")}
+            onClick={() => setEditingSource(id)}
           />
           {/* firefox cannot drag a button */}
           {setHandleRef && (

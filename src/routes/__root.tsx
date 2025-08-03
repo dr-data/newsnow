@@ -4,11 +4,14 @@ import { Outlet, createRootRouteWithContext } from "@tanstack/react-router"
 import { TanStackRouterDevtools } from "@tanstack/router-devtools"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import type { QueryClient } from "@tanstack/react-query"
+import { useAtom } from "jotai"
 import { Header } from "~/components/header"
 import { GlobalOverlayScrollbar } from "~/components/common/overlay-scrollbar"
 import { Footer } from "~/components/footer"
 import { Toast } from "~/components/common/toast"
 import { SearchBar } from "~/components/common/search-bar"
+import { EditSourceModal } from "~/components/settings/EditSourceModal"
+import { editingSourceAtom } from "~/atoms/settings"
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
@@ -28,6 +31,8 @@ function RootComponent() {
   useOnReload()
   useSync()
   usePWA()
+  const [editingSource, setEditingSource] = useAtom(editingSourceAtom)
+
   return (
     <>
       <GlobalOverlayScrollbar className={$([
@@ -63,6 +68,7 @@ function RootComponent() {
       </GlobalOverlayScrollbar>
       <Toast />
       <SearchBar />
+      {editingSource && <EditSourceModal id={editingSource} close={() => setEditingSource(null)} />}
       {import.meta.env.DEV && (
         <>
           <ReactQueryDevtools buttonPosition="bottom-left" />

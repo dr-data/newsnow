@@ -32,7 +32,7 @@ export function Menu() {
                 >
                 </button>
               )
-            : <button type="button" className="btn i-si:more-muted-horiz-circle-duotone" />
+            : <button type="button" className="btn i-ph:gear-duotone" />
         }
       </span>
       {shown && (
@@ -40,7 +40,7 @@ export function Menu() {
           <motion.div
             id="dropdown-menu"
             className={$([
-              "w-200px",
+              "w-160px",
               "bg-primary backdrop-blur-5 bg-op-70! rounded-lg shadow-xl",
             ])}
             initial={{
@@ -61,31 +61,13 @@ export function Menu() {
                 : (
                     <li onClick={login}>
                       <span className="i-ph:sign-in-duotone inline-block" />
-                      <span>Github 账号登录</span>
+                      <span>登录</span>
                     </li>
                   ))}
               <ThemeToggle />
               <li onClick={() => window.open(Homepage)} className="cursor-pointer [&_*]:cursor-pointer transition-all">
                 <span className="i-ph:github-logo-duotone inline-block" />
-                <span>Star on Github </span>
-              </li>
-              <li className="flex gap-2 items-center">
-                <a
-                  href="https://github.com/ourongxing/newsnow"
-                >
-                  <img
-                    alt="GitHub stars badge"
-                    src="https://img.shields.io/github/stars/ourongxing/newsnow?logo=github"
-                  />
-                </a>
-                <a
-                  href="https://github.com/ourongxing/newsnow/fork"
-                >
-                  <img
-                    alt="GitHub forks badge"
-                    src="https://img.shields.io/github/forks/ourongxing/newsnow?logo=github"
-                  />
-                </a>
+                <span>Github</span>
               </li>
             </ol>
           </motion.div>
