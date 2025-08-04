@@ -1,0 +1,23 @@
+
+> newsnow@0.0.31 dev
+> npm run presource && vite dev
+
+
+> newsnow@0.0.31 presource
+> npx tsx ./scripts/favicon.ts && npx tsx ./scripts/source.ts
+
+✔ mingpao: downloaded successfully.
+✔ googlenewshk: downloaded successfully.
+✔ scmp: downloaded successfully.
+ℹ Generated pinyin.json
+ℹ Generated sources.json
+
+♻️  Generating routes...
+✅ Processed routes in 305ms
+ℹ The server endpoints are accessible under the "/api" path.
+
+  VITE v6.3.5  ready in 4336 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  UnoCSS Inspector: http:/localhost:5173/__unocss/

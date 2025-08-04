@@ -1,4 +1,5 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { AddSourceDialog } from "../add-source-dialog";
 
 function ThemeToggle() {
   const { isDark, toggleDark } = useDark()
@@ -15,9 +16,12 @@ function ThemeToggle() {
 export function Menu() {
   const { loggedIn, login, logout, userInfo, enableLogin } = useLogin()
   const [shown, show] = useState(false)
+  const [addSourceDialogOpen, setAddSourceDialogOpen] = useState(false)
   return (
-    <span className="relative" onMouseEnter={() => show(true)} onMouseLeave={() => show(false)}>
-      <span className="flex items-center scale-90">
+    <>
+      <AddSourceDialog open={addSourceDialogOpen} onOpenChange={setAddSourceDialogOpen} />
+      <span className="relative" onMouseEnter={() => show(true)} onMouseLeave={() => show(false)}>
+        <span className="flex items-center scale-90">
         {
           enableLogin && loggedIn && userInfo.avatar
             ? (
@@ -65,6 +69,10 @@ export function Menu() {
                     </li>
                   ))}
               <ThemeToggle />
+              <li onClick={() => setAddSourceDialogOpen(true)} className="cursor-pointer [&_*]:cursor-pointer transition-all">
+                <span className="i-ph:plus-circle-duotone inline-block" />
+                <span>Add RSS Source</span>
+              </li>
               <li onClick={() => window.open(Homepage)} className="cursor-pointer [&_*]:cursor-pointer transition-all">
                 <span className="i-ph:github-logo-duotone inline-block" />
                 <span>Star on Github </span>

@@ -46,6 +46,10 @@ export function defineRSSHubSource(route: string, RSSHubOptions?: RSSHubOption, 
   }
 }
 
+import { promises as fsp } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
 export function proxySource(proxyUrl: string, source: SourceGetter) {
   return process.env.CF_PAGES
     ? defineSource(async () => {
@@ -53,4 +57,29 @@ export function proxySource(proxyUrl: string, source: SourceGetter) {
         return data.items
       })
     : source
+}
+
+export async function _addSource(name: string, url: string) {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const sourceId = name.toLowerCase().replace(/\s/g, "-");
+  const sourceFilePath = path.resolve(__dirname, `../sources/${sourceId}.ts`);
+  const sourcesJsonPath = path.resolve(__dirname, "../../shared/sources.json");
+
+  const sourceFileContent = `export default defineSource({
+  "${sourceId}": defineRSSSource("${url}"),
+});
+`;
+
+  await fsp.writeFile(sourceFilePath, sourceFileContent);
+
+  const sourcesJson = JSON.parse(await fsp.readFile(sourcesJsonPath, "utf-8"));
+
+  sourcesJson[sourceId] = {
+    name,
+    home: url,
+    color: "gray",
+    interval: 600000,
+  };
+
+  await fsp.writeFile(sourcesJsonPath, JSON.stringify(sourcesJson, null, 2));
 }
