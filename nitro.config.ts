@@ -2,6 +2,7 @@ import process from "node:process"
 import { join } from "node:path"
 import viteNitro from "vite-plugin-with-nitro"
 import { RollopGlob } from "./tools/rollup-glob"
+import { RollupHtml } from "./tools/rollup-html"
 import { projectDir } from "./shared/dir"
 
 const nitroOption: Parameters<typeof viteNitro>[0] = {
@@ -9,7 +10,7 @@ const nitroOption: Parameters<typeof viteNitro>[0] = {
     database: true,
   },
   rollupConfig: {
-    plugins: [RollopGlob()],
+    plugins: [RollopGlob(), RollupHtml()],
   },
   sourceMap: false,
   database: {
