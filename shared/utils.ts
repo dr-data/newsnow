@@ -23,6 +23,14 @@ export function relativeTime(timestamp: string | number) {
   }
 }
 
+export function exactTime(timestamp: string | number): string | undefined {
+  if (!timestamp) return undefined
+  const date = new Date(timestamp)
+  if (Number.isNaN(date.getTime())) return undefined
+  const pad = (n: number) => String(n).padStart(2, "0")
+  return `${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`
+}
+
 export function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }

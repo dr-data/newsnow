@@ -1,4 +1,5 @@
 import type { NewsItem, SourceID, SourceResponse } from "@shared/types"
+import { exactTime } from "@shared/utils"
 import { useQuery } from "@tanstack/react-query"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import { useWindowSize } from "react-use"
@@ -223,8 +224,21 @@ function ExtraInfo({ item }: { item: NewsItem }) {
 }
 
 function NewsUpdatedTime({ date }: { date: string | number }) {
-  const relativeTime = useRelativeTime(date)
-  return <>{relativeTime}</>
+  const [showExact, setShowExact] = useState(false)
+  const rel = useRelativeTime(date)
+  const exact = exactTime(date)
+  return (
+    <span
+      className="cursor-pointer"
+      title={showExact ? rel : exact}
+      onClick={(e) => {
+        e.stopPropagation()
+        setShowExact(s => !s)
+      }}
+    >
+      {showExact ? exact : rel}
+    </span>
+  )
 }
 function NewsListHot({ items }: { items: NewsItem[] }) {
   const { width } = useWindowSize()
@@ -268,7 +282,9 @@ function NewsListTimeLine({ items }: { items: NewsItem[] }) {
           <span className="flex items-center gap-1 text-neutral-400/50 ml--1px">
             <span className="">-</span>
             <span className="text-xs text-neutral-400/80">
-              {(item.pubDate || item?.extra?.date) && <NewsUpdatedTime date={(item.pubDate || item?.extra?.date)!} />}
+              {(item.pubDate || item?.extra?.date)
+                ? <NewsUpdatedTime date={(item.pubDate || item?.extra?.date)!} />
+                : <span className="text-neutral-400/30" title="暫無時間">—</span>}
             </span>
             <span className="text-xs text-neutral-400/80">
               <ExtraInfo item={item} />

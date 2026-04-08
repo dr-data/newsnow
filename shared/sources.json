@@ -563,5 +563,96 @@
     "color": "green",
     "interval": 1800000,
     "title": "热播榜"
+  },
+  "rthk": {
+    "name": "香港電台",
+    "type": "realtime",
+    "column": "hongkong",
+    "home": "https://news.rthk.hk/",
+    "color": "blue",
+    "interval": 300000
+  },
+  "infogovhk": {
+    "name": "政府新聞網",
+    "type": "realtime",
+    "column": "hongkong",
+    "home": "https://www.info.gov.hk/",
+    "color": "sky",
+    "interval": 1800000
+  },
+  "googlenewshk": {
+    "name": "Google新聞",
+    "column": "hongkong",
+    "home": "https://news.google.com/",
+    "color": "blue",
+    "interval": 600000
+  },
+  "mingpao": {
+    "name": "明報",
+    "column": "hongkong",
+    "home": "https://www.mingpao.com/",
+    "color": "blue",
+    "interval": 600000
+  },
+  "scmp": {
+    "name": "南華早報",
+    "column": "hongkong",
+    "home": "https://www.scmp.com/",
+    "color": "gray",
+    "interval": 600000
+  },
+  "hk01": {
+    "name": "香港01",
+    "type": "hottest",
+    "column": "hongkong",
+    "home": "https://www.hk01.com/",
+    "color": "blue",
+    "interval": 600000
+  },
+  "yahoohk": {
+    "name": "Yahoo新聞",
+    "column": "hongkong",
+    "home": "https://hk.news.yahoo.com/",
+    "color": "purple",
+    "interval": 600000
+  },
+  "nytimes": {
+    "name": "紐約時報",
+    "column": "world",
+    "home": "https://www.nytimes.com/",
+    "color": "gray",
+    "interval": 600000
+  },
+  "bbc": {
+    "name": "BBC新聞",
+    "column": "world",
+    "home": "https://www.bbc.com/news",
+    "color": "red",
+    "interval": 600000
+  },
+  "youtube": {
+    "name": "YouTube",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://www.youtube.com/feed/trending",
+    "color": "red",
+    "interval": 1800000
+  },
+  "googletrends": {
+    "name": "Google 趨勢",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://trends.google.com/trending",
+    "color": "blue",
+    "interval": 300000
+  },
+  "twitter": {
+    "name": "Twitter/X",
+    "type": "hottest",
+    "desc": "需要設置 TWITTER_BEARER_TOKEN 環境變量",
+    "column": "world",
+    "home": "https://x.com",
+    "color": "sky",
+    "interval": 300000
   }
 }
